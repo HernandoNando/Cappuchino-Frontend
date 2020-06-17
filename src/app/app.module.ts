@@ -10,6 +10,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CategoriaService } from 'src/services/domain/categoria.service';
+import { ErrorInterceptorProvider } from 'src/interceptors/error-interceptor';
+import { AuthService } from 'src/services/auth.service';
+import { StorageService } from 'src/services/storage.service';
+import { Observable } from 'rxjs';
+ 
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +29,11 @@ import { CategoriaService } from 'src/services/domain/categoria.service';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    CategoriaService
+    CategoriaService,
+    ErrorInterceptorProvider,
+    AuthService,
+    StorageService,
+    Observable
   ],
   bootstrap: [AppComponent]
 })

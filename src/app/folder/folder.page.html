@@ -4,18 +4,18 @@
       <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <h1>Sistema de Pedidos </h1>
+  <h1> Cappuchino </h1>
 
   <img src="assets/icon/tela-inicial.jpg" alt="logo">
 
   <form>
     <ion-item>
       <ion-label position="stacked">Email</ion-label>
-      <ion-input type=text></ion-input>
+      <ion-input [(ngModel)]="creds.email" name="email" type=text></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Senha</ion-label>
-      <ion-input type=password></ion-input>
+      <ion-input [(ngModel)]="creds.senha" name="senha" type=password></ion-input>
     </ion-item>
     <ion-button routerLink="/categorias" expand="block">Entrar</ion-button>
   </form>

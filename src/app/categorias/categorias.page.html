@@ -8,6 +8,15 @@
 </ion-header>
 
 <ion-content>
-  <p>pagina de categorias</p>
+  <ion-list>
+    <ion-item>
+      <button ion-item *ngFor="let item of items">
+        <ion-thumbnail item-start>
+          <img src="{{bucketURL}}foto{{item.id}}.jpg">
+        </ion-thumbnail>
+        <h1> {{ item.nome }} </h1>
+      </button>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
