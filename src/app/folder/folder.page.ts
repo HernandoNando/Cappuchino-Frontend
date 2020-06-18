@@ -36,11 +36,25 @@ export class FolderPage implements OnInit {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
+  ionViewDidEnter(){
+    this.auth.refreshToken()
+    .subscribe(response => {
+      this.auth.successfulLogin(response.headers.get('Authorization'));
+      this.navCtrl.navigateRoot('/CategoriasPage');
+    },
+    _error => {});
+  }
+
   login(){
-    this.auth.authenticate(this.creds).subscribe(response => {
+    this.auth.authenticate(this.creds)
+      .subscribe(response => {
         this.auth.successfulLogin(response.headers.get('Authorization'));
         this.navCtrl.navigateRoot('/CategoriasPage');
       },
       _error => {});
+  }
+
+  sugnup(){
+    this.navCtrl.navigateRoot('/SignupPage');
   }
 }
